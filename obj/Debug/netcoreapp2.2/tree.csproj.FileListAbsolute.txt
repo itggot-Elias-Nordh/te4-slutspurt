@@ -1,0 +1,11 @@
+C:\Users\Elias\Documents\Programering\tree\bin\Debug\netcoreapp2.2\tree.deps.json
+C:\Users\Elias\Documents\Programering\tree\bin\Debug\netcoreapp2.2\tree.runtimeconfig.json
+C:\Users\Elias\Documents\Programering\tree\bin\Debug\netcoreapp2.2\tree.runtimeconfig.dev.json
+C:\Users\Elias\Documents\Programering\tree\bin\Debug\netcoreapp2.2\tree.dll
+C:\Users\Elias\Documents\Programering\tree\bin\Debug\netcoreapp2.2\tree.pdb
+C:\Users\Elias\Documents\Programering\tree\obj\Debug\netcoreapp2.2\tree.csprojAssemblyReference.cache
+C:\Users\Elias\Documents\Programering\tree\obj\Debug\netcoreapp2.2\tree.csproj.CoreCompileInputs.cache
+C:\Users\Elias\Documents\Programering\tree\obj\Debug\netcoreapp2.2\tree.AssemblyInfoInputs.cache
+C:\Users\Elias\Documents\Programering\tree\obj\Debug\netcoreapp2.2\tree.AssemblyInfo.cs
+C:\Users\Elias\Documents\Programering\tree\obj\Debug\netcoreapp2.2\tree.dll
+C:\Users\Elias\Documents\Programering\tree\obj\Debug\netcoreapp2.2\tree.pdb
