@@ -1,98 +1,77 @@
 ﻿using System;
-using System.Diagnostics;
 
 namespace BinarySearchTree
 {
     class Node
     {
-        public int value;
-        public Node left;
-        public Node right;
-    }
+        public int Value { get; private set; }
+        public Node Left { get; private set; }
+        public Node Right { get; private set; }
 
-    class Tree
-    {
-        public Node insert(Node root, int v)
+        public void insert(int value)
         {
-            if (root == null)
+            if (this.Value == 0)
             {
-                root = new Node();
-                root.value = v;
+                this.Value = value;
             }
-            else if (v < root.value)
+            else if (value < this.Value)
             {
-                root.left = insert(root.left, v);
+                if (this.Left == null)
+                {
+                    this.Left = new Node();
+                }
+                this.Left.insert(value);
             }
-            else
+            else if (value > this.Value)
             {
-                root.right = insert(root.right, v);
+                if (this.Right == null)
+                {
+                    this.Right = new Node();
+                }
+                this.Right.insert(value);
             }
-
-            return root;
-        }
-
-        public void traverse(Node root)
-        {
-            if (root == null)
-            {
-                return;
-            }
-
-            traverse(root.left);
-            traverse(root.right);
-        }
+        }    
     }
-
 
     class BinarySearchTree
     {
+        static Node tree = new Node();
+
         static void Main(string[] args)
         {
-            Node root = null;
-            Tree bst = new Tree();
-            int SIZE = 2000000;
-            int[] a = new int[SIZE];
-
-            Console.WriteLine("Generating random array with {0} values...", SIZE);
-
-            Random random = new Random();
-
-            Stopwatch watch = Stopwatch.StartNew();
-
-            for (int i = 0; i < SIZE; i++)
+            create();
+            try
             {
-                a[i] = random.Next(10000);
+                Console.WriteLine(search(tree, 12));
             }
-
-            watch.Stop();
-
-            Console.WriteLine("Done. Took {0} seconds", (double)watch.ElapsedMilliseconds / 1000.0);
-            Console.WriteLine();
-            Console.WriteLine("Filling the tree with {0} nodes...", SIZE);
-
-            watch = Stopwatch.StartNew();
-
-            for (int i = 0; i < SIZE; i++)
+            catch
             {
-                root = bst.insert(root, a[i]);
+                Console.WriteLine("No such number in tree");
             }
+        }
+        static void create()
+        {
+            int[] numbers = { 4, 2, 7, 1, 9, 12 };
+            foreach (int i in numbers)
+            {
+                tree.insert(i);
+            }          
+        }
 
-            watch.Stop();
-
-            Console.WriteLine("Done. Took {0} seconds", (double)watch.ElapsedMilliseconds / 1000.0);
-            Console.WriteLine();
-            Console.WriteLine("Traversing all {0} nodes in tree...", SIZE);
-
-            watch = Stopwatch.StartNew();
-
-            bst.traverse(root);
-
-            watch.Stop();
-
-            Console.WriteLine("Done. Took {0} seconds", (double)watch.ElapsedMilliseconds / 1000.0);
-            Console.WriteLine();
-
-            Console.ReadKey();
+        static int search(Node tree, int value)
+        {
+            if (value == tree.Value)
+            {
+                return value;
+            }
+            else if (value < tree.Value)
+            {
+                return search(tree.Left, value);
+            }
+            else
+            {
+                return search(tree.Right, value);
+            }
         }
     }
 }
